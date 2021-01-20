@@ -40,7 +40,7 @@ class AddTodoInteractor: AddTodoBusinessLogic, AddTodoDataStore {
             onFailure: { error in
                 self.presenter?.presentAddedTodo(
                     response: AddTodoModel.AddTodo.Response(
-                        errorMessage: error.localizedDescription
+                        errorMessage: (error as! TDError).errorMessage
                     )
                 )
             }

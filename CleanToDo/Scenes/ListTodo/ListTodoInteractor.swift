@@ -37,7 +37,7 @@ class ListTodoInteractor: ListTodoBusinessLogic, ListTodoDataStore {
             onFailure: { error in
                 self.presenter?.presentFetchedTodos(
                     response: ListTodoModel.FetchTodos.Response(
-                        errorMessage: error.localizedDescription
+                        errorMessage: (error as! TDError).errorMessage
                     )
                 )
             }
