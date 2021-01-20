@@ -1,5 +1,5 @@
 //
-//  ListTodoModel.swift
+//  DetailTodoModel.swift
 //  CleanToDo
 //
 //  Created by Park on 2021/01/19.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-enum ListTodoModel {
-    enum FetchTodos {
+enum DetailTodoModel {
+    enum FetchTodo {
         struct Response {
-            var todos: [Todo]?
+            var todo: Todo?
             var errorMessage: String?
         }
         struct ViewModel {
@@ -19,7 +19,7 @@ enum ListTodoModel {
                 var contents: String
                 var createdDate: String
             }
-            var displayedTodos: [DisplayedTodo]?
+            var displayedTodo: DisplayedTodo?
             var errorMessage: String?
         }
     }

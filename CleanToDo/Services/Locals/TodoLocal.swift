@@ -9,15 +9,15 @@ import Foundation
 import RxSwift
 
 class TodoLocal: BaseLocal {
-    func insertTodo(todo: Todo) -> Completable {
-        return Completable.create { completable in
+    func insertTodo(todo: Todo) -> Single<String> {
+        return Single<String>.create { single in
             do {
                 try self.realm.write {
                     self.realm.add(todo.toDBModel())
                 }
-                completable(.completed)
+                single(.success("TODO 목록에 추가되었습니다."))
             } catch {
-                completable(.error(
+                single(.failure(
                                 TDError(errorMessage: "저장에 실패했습니다")))
             }
             return Disposables.create()
