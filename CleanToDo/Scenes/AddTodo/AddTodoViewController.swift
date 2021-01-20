@@ -17,6 +17,16 @@ class AddTodoViewController: UIViewController, AddTodoDisplayLogic {
     var interactor: AddTodoBusinessLogic?
     var router: (NSObject & AddTodoRoutingLogic & AddTodoDataPassing)?
     
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var contentsTextField: UITextView!
+    
+    @IBAction func clickAddTodo(_ sender: Any) {
+        let title = titleTextField.text!
+        let contents = contentsTextField.text!
+        
+        interactor?.addTodo(request: AddTodoModel.AddTodo.Request(todoFormFields: AddTodoModel.TodoFormFields(title: title, contents: contents)))
+    }
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -46,7 +56,7 @@ class AddTodoViewController: UIViewController, AddTodoDisplayLogic {
     }
     
     func displayAddedTodo(viewModel: AddTodoModel.AddTodo.ViewModel) {
-        
+        router?.routeToListTodo(segue: nil)
     }
     
     func displayAddedTodoError(viewModel: AddTodoModel.AddTodo.ViewModel) {

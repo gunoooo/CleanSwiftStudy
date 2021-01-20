@@ -41,7 +41,7 @@ class AddTodoRouter: NSObject, AddTodoRoutingLogic, AddTodoDataPassing {
         source: AddTodoViewController,
         destination: ListTodoViewController
     ) {
-        source.show(destination, sender: nil)
+        source.navigationController?.popViewController(animated: true)
     }
     
     // Passing Data

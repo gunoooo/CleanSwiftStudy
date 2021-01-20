@@ -15,7 +15,7 @@ class AddTodoPresenter: AddTodoPresentationLogic {
     var viewController: AddTodoDisplayLogic?
     
     func presentAddedTodo(response: AddTodoModel.AddTodo.Response) {
-        if (response.errorMessage != nil) {
+        if (response.errorMessage == nil) {
             displayAddedTodo(response: response)
         } else {
             displayAddedTodoError(response: response)

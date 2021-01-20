@@ -46,6 +46,7 @@ class ListTodoViewController: UIViewController, ListTodoDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         todoTableView.dataSource = self
+        interactor?.fetchTodos()
     }
 
     func displayFetchedTodos(viewModel: ListTodoModel.FetchTodos.ViewModel) {
