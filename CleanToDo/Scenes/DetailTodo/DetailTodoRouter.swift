@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 @objc protocol DetailTodoRoutingLogic {
-    func routeToAddTodo(segue: UIStoryboardSegue?)
+    func routeToModifyTodo(segue: UIStoryboardSegue?)
 }
 
 protocol DetailTodoDataPassing {
@@ -17,36 +17,42 @@ protocol DetailTodoDataPassing {
 }
 
 class DetailTodoRouter: NSObject, DetailTodoRoutingLogic, DetailTodoDataPassing {
-    var viewController: DetailTodoViewController?
+    weak var viewController: DetailTodoViewController?
+    
+    // Data
+    
     var dataStore: DetailTodoDataStore?
     
     // Routing
     
-    func routeToAddTodo(segue: UIStoryboardSegue?) {
+    func routeToModifyTodo(segue: UIStoryboardSegue?) {
+        var destinationViewController: AddTodoViewController
+        var desinationDataStore: AddTodoDataStore
         if let segue = segue {
-            let destinationVC = segue.destination as! AddTodoViewController
-            var destinationDS = destinationVC.router!.dataStore!
-            passDataToAddTodo(source: dataStore!, destination: &destinationDS)
+            destinationViewController = segue.destination as! AddTodoViewController
+            desinationDataStore = destinationViewController.router!.dataStore!
+            passDataToModifyTodo(source: dataStore!, destination: &desinationDataStore)
         } else {
-            let destinationVC = viewController?.storyboard?.instantiateViewController(withIdentifier:   "AddTodoViewController") as! AddTodoViewController
-            var destinationDS = destinationVC.router!.dataStore!
-            passDataToAddTodo(source: dataStore!, destination: &destinationDS)
-            navigateToAddTodo(source: viewController!, destination: destinationVC)
+            let destinationViewController = viewController?.storyboard?
+                .instantiateViewController(withIdentifier: "AddTodoViewController") as! AddTodoViewController
+            var desinationDataStore = destinationViewController.router!.dataStore!
+            passDataToModifyTodo(source: dataStore!, destination: &desinationDataStore)
+            navigateToModifyTodo(source: viewController!, destination: destinationViewController)
         }
     }
     
     // Navigation
     
-    private func navigateToAddTodo(
+    private func navigateToModifyTodo(
         source: DetailTodoViewController,
         destination: AddTodoViewController
     ) {
-        source.show(destination, sender: nil)
+        source.navigationController?.pushViewController(destination, animated: true)
     }
     
     // Data Passing
     
-    private func passDataToAddTodo(
+    private func passDataToModifyTodo(
         source: DetailTodoDataStore,
         destination: inout AddTodoDataStore
     ) {

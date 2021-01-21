@@ -7,18 +7,36 @@
 
 import Foundation
 import RxSwift
+import RealmSwift
 
 class TodoLocal: BaseLocal {
     func insertTodo(todo: Todo) -> Single<String> {
         return Single<String>.create { single in
             do {
                 try self.realm.write {
+                    let todoDBModel = todo.toDBModel()
+                    todoDBModel.setAutoIncrementIdx()
                     self.realm.add(todo.toDBModel())
                 }
-                single(.success("TODO 목록에 추가되었습니다."))
+                single(.success("TODO 목록에 추가되었습니다"))
             } catch {
                 single(.failure(
-                                TDError(errorMessage: "저장에 실패했습니다")))
+                        TDError(errorMessage: "저장에 실패했습니다")))
+            }
+            return Disposables.create()
+        }
+    }
+    
+    func updateTodo(todo: Todo) -> Single<String> {
+        return Single<String>.create { single in
+            do {
+                try self.realm.write {
+                    self.realm.add(todo.toDBModel(), update: Realm.UpdatePolicy.all)
+                }
+                single(.success("수정하였습니다"))
+            } catch {
+                single(.failure(
+                        TDError(errorMessage: "수정에 실패했습니다")))
             }
             return Disposables.create()
         }

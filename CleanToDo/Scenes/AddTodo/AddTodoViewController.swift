@@ -8,11 +8,20 @@
 import Foundation
 import UIKit
 
-protocol AddTodoDisplayLogic {
+protocol AddTodoDisplayLogic: class {
     func displayAddedTodo(viewModel: AddTodoModel.AddTodo.ViewModel)
     func displayAddedTodoError(viewModel: AddTodoModel.AddTodo.ViewModel)
+    
+    func displayModifiedTodo(viewModel: AddTodoModel.ModifyTodo.ViewModel)
+    func displayModifiedTodoError(viewModel: AddTodoModel.ModifyTodo.ViewModel)
+    
+    func displayedFetchedTodo(viewModel: AddTodoModel.FetchTodo.ViewModel)
+    func displayedFetchedTodoError(viewModel: AddTodoModel.FetchTodo.ViewModel)
 }
 
+/**
+   todo 작성(Add) 및 수정(Modify)을 담당하는 화면
+*/
 class AddTodoViewController: UIViewController, AddTodoDisplayLogic {
     var interactor: AddTodoBusinessLogic?
     var router: (NSObject & AddTodoRoutingLogic & AddTodoDataPassing)?
@@ -24,7 +33,8 @@ class AddTodoViewController: UIViewController, AddTodoDisplayLogic {
         let title = titleTextField.text!
         let contents = contentsTextField.text!
         
-        interactor?.addTodo(request: AddTodoModel.AddTodo.Request(todoFormFields: AddTodoModel.TodoFormFields(title: title, contents: contents)))
+        interactor?.addTodo(request: AddTodoModel.AddTodo.Request(
+            todoFormFields: AddTodoModel.TodoFormFields(title: title, contents: contents)))
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -52,7 +62,16 @@ class AddTodoViewController: UIViewController, AddTodoDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        interactor?.fetchTodo()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
     }
     
     func displayAddedTodo(viewModel: AddTodoModel.AddTodo.ViewModel) {
@@ -60,6 +79,23 @@ class AddTodoViewController: UIViewController, AddTodoDisplayLogic {
     }
     
     func displayAddedTodoError(viewModel: AddTodoModel.AddTodo.ViewModel) {
+        
+    }
+    
+    func displayModifiedTodo(viewModel: AddTodoModel.ModifyTodo.ViewModel) {
+        router?.routeToDetailTodo(segue: nil)
+    }
+    
+    func displayModifiedTodoError(viewModel: AddTodoModel.ModifyTodo.ViewModel) {
+        
+    }
+    
+    func displayedFetchedTodo(viewModel: AddTodoModel.FetchTodo.ViewModel) {
+        titleTextField.text = viewModel.displayedTodo?.title
+        contentsTextField.text = viewModel.displayedTodo?.contents
+    }
+    
+    func displayedFetchedTodoError(viewModel: AddTodoModel.FetchTodo.ViewModel) {
         
     }
 }

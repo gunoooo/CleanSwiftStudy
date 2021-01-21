@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol DetailTodoDisplayLogic {
+protocol DetailTodoDisplayLogic: class {
     func displayFetchedTodo(viewModel: DetailTodoModel.FetchTodo.ViewModel)
     func displayFetchedTodoError(viewModel: DetailTodoModel.FetchTodo.ViewModel)
 }
@@ -16,6 +16,9 @@ protocol DetailTodoDisplayLogic {
 class DetailTodoViewController: UIViewController, DetailTodoDisplayLogic {
     var interactor: DetailTodoBusinessLogic?
     var router: (NSObject & DetailTodoRoutingLogic & DetailTodoDataPassing)?
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var contentsLabel: UILabel!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -40,8 +43,23 @@ class DetailTodoViewController: UIViewController, DetailTodoDisplayLogic {
         router.dataStore = interactor
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        interactor?.fetchTodo()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
+    
     func displayFetchedTodo(viewModel: DetailTodoModel.FetchTodo.ViewModel) {
-        
+        titleLabel.text = viewModel.displayedTodo?.title
+        contentsLabel.text = viewModel.displayedTodo?.contents
     }
     
     func displayFetchedTodoError(viewModel: DetailTodoModel.FetchTodo.ViewModel) {

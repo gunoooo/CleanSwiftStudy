@@ -12,7 +12,7 @@ protocol DetailTodoPresentationLogic {
 }
 
 class DetailTodoPresenter: DetailTodoPresentationLogic {
-    var viewController: DetailTodoDisplayLogic?
+    weak var viewController: DetailTodoDisplayLogic?
     
     func presentFetchedTodo(response: DetailTodoModel.FetchTodo.Response) {
         if (response.errorMessage == nil) {

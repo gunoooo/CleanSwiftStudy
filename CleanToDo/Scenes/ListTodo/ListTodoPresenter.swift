@@ -12,7 +12,7 @@ protocol ListTodoPresentationLogic {
 }
 
 class ListTodoPresenter: ListTodoPresentationLogic {
-    var viewController: ListTodoDisplayLogic?
+    weak var viewController: ListTodoDisplayLogic?
     
     func presentFetchedTodos(response: ListTodoModel.FetchTodos.Response) {
         if (response.errorMessage == nil) {

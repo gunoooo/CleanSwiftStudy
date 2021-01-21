@@ -28,19 +28,27 @@ class ListTodoInteractor: ListTodoBusinessLogic, ListTodoDataStore {
         todoWorker.fetchTodos().subscribe(
             onSuccess: { data in
                 self.todos = data
-                self.presenter?.presentFetchedTodos(
-                    response: ListTodoModel.FetchTodos.Response(
-                        todos: data
-                    )
-                )
+                self.presentFetchedTodos()
             },
             onFailure: { error in
-                self.presenter?.presentFetchedTodos(
-                    response: ListTodoModel.FetchTodos.Response(
-                        errorMessage: (error as! TDError).errorMessage
-                    )
-                )
+                self.presentFetchedTodos(error: error)
             }
         ).disposed(by: disposeBag)
+    }
+    
+    private func presentFetchedTodos() {
+        presenter?.presentFetchedTodos(
+            response: ListTodoModel.FetchTodos.Response(
+                todos: todos
+            )
+        )
+    }
+    
+    private func presentFetchedTodos(error: Error) {
+        presenter?.presentFetchedTodos(
+            response: ListTodoModel.FetchTodos.Response(
+                errorMessage: (error as! TDError).errorMessage
+            )
+        )
     }
 }

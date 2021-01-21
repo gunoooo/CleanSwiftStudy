@@ -14,6 +14,10 @@ class TodoWorker {
         return local.insertTodo(todo: todo)
     }
     
+    func modifyTodo(todo: Todo) -> Single<String> {
+        return local.updateTodo(todo: todo)
+    }
+    
     func fetchTodos() -> Single<[Todo]> {
         return local.selectTodoList()
     }

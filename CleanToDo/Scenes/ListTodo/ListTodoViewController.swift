@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ListTodoDisplayLogic {
+protocol ListTodoDisplayLogic: class {
     func displayFetchedTodos(viewModel: ListTodoModel.FetchTodos.ViewModel)
     func displayFetchedTodosError(viewModel: ListTodoModel.FetchTodos.ViewModel)
 }
@@ -46,14 +46,29 @@ class ListTodoViewController: UIViewController, ListTodoDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         todoTableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         interactor?.fetchTodos()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
     }
 
     func displayFetchedTodos(viewModel: ListTodoModel.FetchTodos.ViewModel) {
         displayedTodos = viewModel.displayedTodos!
+        todoTableView.reloadData()
     }
     
     func displayFetchedTodosError(viewModel: ListTodoModel.FetchTodos.ViewModel) {
+        
     }
 }
 

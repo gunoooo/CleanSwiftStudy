@@ -17,21 +17,27 @@ protocol ListTodoDataPassing {
 }
 
 class ListTodoRouter: NSObject, ListTodoRoutingLogic, ListTodoDataPassing {
-    var viewController: ListTodoViewController?
+    weak var viewController: ListTodoViewController?
+    
+    // Data
+    
     var dataStore: ListTodoDataStore?
     
     // Routing
     
     func routeToDetailTodo(segue: UIStoryboardSegue?) {
+        var destinationViewController: DetailTodoViewController
+        var desinationDataStore: DetailTodoDataStore
         if let segue = segue {
-            let destinationVC = segue.destination as! DetailTodoViewController
-            var destinationDS = destinationVC.router!.dataStore!
-            passDataToDetailTodo(source: dataStore!, destination: &destinationDS)
+            destinationViewController = segue.destination as! DetailTodoViewController
+            desinationDataStore = destinationViewController.router!.dataStore!
+            passDataToDetailTodo(source: dataStore!, destination: &desinationDataStore)
         } else {
-            let destinationVC = viewController?.storyboard?.instantiateViewController(withIdentifier:   "DetailTodoViewController") as! DetailTodoViewController
-            var destinationDS = destinationVC.router!.dataStore!
-            passDataToDetailTodo(source: dataStore!, destination: &destinationDS)
-            navigateToDetailTodo(source: viewController!, destination: destinationVC)
+            let destinationViewController = viewController?.storyboard?
+                .instantiateViewController(withIdentifier: "DetailTodoViewController") as! DetailTodoViewController
+            var desinationDataStore = destinationViewController.router!.dataStore!
+            passDataToDetailTodo(source: dataStore!, destination: &desinationDataStore)
+            navigateToDetailTodo(source: viewController!, destination: destinationViewController)
         }
     }
     
@@ -45,7 +51,7 @@ class ListTodoRouter: NSObject, ListTodoRoutingLogic, ListTodoDataPassing {
         source: ListTodoViewController,
         destination: DetailTodoViewController
     ) {
-        source.show(destination, sender: nil)
+        source.navigationController?.pushViewController(destination, animated: true)
     }
     
     // Passing Data
@@ -54,7 +60,7 @@ class ListTodoRouter: NSObject, ListTodoRoutingLogic, ListTodoDataPassing {
         source: ListTodoDataStore,
         destination: inout DetailTodoDataStore
     ) {
-//        let selectedRow = viewController?.tableView.indexPathForSelectedRow?.row
-//        destination.todos = source.todos?[selectedRow!]
+        let selectedRow = viewController?.todoTableView.indexPathForSelectedRow?.row
+        destination.todo = source.todos?[selectedRow!]
     }
 }

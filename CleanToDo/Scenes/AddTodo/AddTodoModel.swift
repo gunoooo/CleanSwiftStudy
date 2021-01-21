@@ -25,4 +25,32 @@ enum AddTodoModel {
             var errorMessage: String?
         }
     }
+    enum ModifyTodo {
+        struct Request {
+            var idx: Int
+            var todoFormFields: TodoFormFields
+        }
+        struct Response {
+            var successMessage: String?
+            var errorMessage: String?
+        }
+        struct ViewModel {
+            var successMessage: String?
+            var errorMessage: String?
+        }
+    }
+    enum FetchTodo {
+        struct Response {
+            var todo: Todo?
+            var errorMessage: String?
+        }
+        struct ViewModel {
+            struct DisplayedTodo {
+                var title: String
+                var contents: String
+            }
+            var displayedTodo: DisplayedTodo?
+            var errorMessage: String?
+        }
+    }
 }

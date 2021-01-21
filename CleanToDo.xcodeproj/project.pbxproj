@@ -32,12 +32,12 @@
 		4E9C0E3B25B70D010045F522 /* AddTodoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C0E3A25B70D010045F522 /* AddTodoPresenter.swift */; };
 		4E9C0E4025B70D190045F522 /* AddTodoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C0E3F25B70D190045F522 /* AddTodoInteractor.swift */; };
 		4E9C0E4525B70D260045F522 /* AddTodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C0E4425B70D260045F522 /* AddTodoModel.swift */; };
-		4E9C0E4A25B70D300045F522 /* AddTodoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C0E4925B70D300045F522 /* AddTodoRouter.swift */; };
 		4E9C0E4F25B70D3B0045F522 /* DetailTodoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C0E4E25B70D3B0045F522 /* DetailTodoPresenter.swift */; };
 		4E9C0E5425B70D460045F522 /* DetailTodoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C0E5325B70D460045F522 /* DetailTodoInteractor.swift */; };
 		4E9C0E5925B70D4E0045F522 /* DetailTodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C0E5825B70D4E0045F522 /* DetailTodoModel.swift */; };
 		4E9C0E5E25B70D560045F522 /* DetailTodoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C0E5D25B70D560045F522 /* DetailTodoRouter.swift */; };
 		4E9C0E6425B821800045F522 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C0E6325B821800045F522 /* TodoCell.swift */; };
+		8FCBE1DB25B949F000624347 /* AddTodoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCBE1DA25B949F000624347 /* AddTodoRouter.swift */; };
 		A7391707EA6BA5CA91D6B9CD /* Pods_CleanToDo_CleanToDoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D2CFD55E207C9E1BA1D7B8 /* Pods_CleanToDo_CleanToDoUITests.framework */; };
 		D979425E435AD80B7437627C /* Pods_CleanToDoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A0F0AE5138807D32BD0FCC /* Pods_CleanToDoTests.framework */; };
 /* End PBXBuildFile section */
@@ -91,7 +91,6 @@
 		4E9C0E3A25B70D010045F522 /* AddTodoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoPresenter.swift; sourceTree = "<group>"; };
 		4E9C0E3F25B70D190045F522 /* AddTodoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoInteractor.swift; sourceTree = "<group>"; };
 		4E9C0E4425B70D260045F522 /* AddTodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoModel.swift; sourceTree = "<group>"; };
-		4E9C0E4925B70D300045F522 /* AddTodoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoRouter.swift; sourceTree = "<group>"; };
 		4E9C0E4E25B70D3B0045F522 /* DetailTodoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTodoPresenter.swift; sourceTree = "<group>"; };
 		4E9C0E5325B70D460045F522 /* DetailTodoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTodoInteractor.swift; sourceTree = "<group>"; };
 		4E9C0E5825B70D4E0045F522 /* DetailTodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTodoModel.swift; sourceTree = "<group>"; };
@@ -100,6 +99,7 @@
 		64F127B966A30E9E557283E6 /* Pods-CleanToDoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanToDoTests.release.xcconfig"; path = "Target Support Files/Pods-CleanToDoTests/Pods-CleanToDoTests.release.xcconfig"; sourceTree = "<group>"; };
 		79052806509300F147CB3C52 /* Pods-CleanToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanToDo.release.xcconfig"; path = "Target Support Files/Pods-CleanToDo/Pods-CleanToDo.release.xcconfig"; sourceTree = "<group>"; };
 		8B29C153555E432C71265CDC /* Pods-CleanToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanToDo.debug.xcconfig"; path = "Target Support Files/Pods-CleanToDo/Pods-CleanToDo.debug.xcconfig"; sourceTree = "<group>"; };
+		8FCBE1DA25B949F000624347 /* AddTodoRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTodoRouter.swift; path = ../../../../../../.Trash/AddTodoRouter.swift; sourceTree = "<group>"; };
 		C68528440C66ACB298C9C357 /* Pods-CleanToDo-CleanToDoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanToDo-CleanToDoUITests.debug.xcconfig"; path = "Target Support Files/Pods-CleanToDo-CleanToDoUITests/Pods-CleanToDo-CleanToDoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D9D2CFD55E207C9E1BA1D7B8 /* Pods_CleanToDo_CleanToDoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanToDo_CleanToDoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E44AD2627228A85DB00DD3FF /* Pods-CleanToDoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanToDoTests.debug.xcconfig"; path = "Target Support Files/Pods-CleanToDoTests/Pods-CleanToDoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -287,7 +287,7 @@
 				4E9C0E3A25B70D010045F522 /* AddTodoPresenter.swift */,
 				4E9C0E3F25B70D190045F522 /* AddTodoInteractor.swift */,
 				4E9C0E4425B70D260045F522 /* AddTodoModel.swift */,
-				4E9C0E4925B70D300045F522 /* AddTodoRouter.swift */,
+				8FCBE1DA25B949F000624347 /* AddTodoRouter.swift */,
 			);
 			path = AddTodo;
 			sourceTree = "<group>";
@@ -595,6 +595,7 @@
 				4E9C0E1225B6F1440045F522 /* Todo.swift in Sources */,
 				4E9C0E5925B70D4E0045F522 /* DetailTodoModel.swift in Sources */,
 				4E9C0E3B25B70D010045F522 /* AddTodoPresenter.swift in Sources */,
+				8FCBE1DB25B949F000624347 /* AddTodoRouter.swift in Sources */,
 				4E9C0E4025B70D190045F522 /* AddTodoInteractor.swift in Sources */,
 				4E9C0E3625B700970045F522 /* DetailTodoViewController.swift in Sources */,
 				4E9C0E2E25B7008C0045F522 /* AddTodoViewController.swift in Sources */,
@@ -613,7 +614,6 @@
 				4E9C0DEC25B6EF240045F522 /* ListTodoModel.swift in Sources */,
 				4E9C0E1F25B6F53F0045F522 /* StringExtension.swift in Sources */,
 				4E9C0E2525B6F9030045F522 /* TDError.swift in Sources */,
-				4E9C0E4A25B70D300045F522 /* AddTodoRouter.swift in Sources */,
 				4E9C0E0A25B6F12B0045F522 /* TodoWorker.swift in Sources */,
 				4E9C0E6425B821800045F522 /* TodoCell.swift in Sources */,
 				4E9C0E5425B70D460045F522 /* DetailTodoInteractor.swift in Sources */,
@@ -794,8 +794,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 647NLFT7J5;
+				DEVELOPMENT_TEAM = 4TBRZ3GR24;
 				INFOPLIST_FILE = CleanToDo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -814,8 +815,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 647NLFT7J5;
+				DEVELOPMENT_TEAM = 4TBRZ3GR24;
 				INFOPLIST_FILE = CleanToDo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
