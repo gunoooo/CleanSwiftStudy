@@ -9,7 +9,6 @@ import UIKit
 
 @objc protocol ListTodoRoutingLogic {
     func routeToDetailTodo(segue: UIStoryboardSegue?)
-    func routeToAddTodo(seque: UIStoryboardSegue?)
 }
 
 protocol ListTodoDataPassing {
@@ -39,10 +38,6 @@ class ListTodoRouter: NSObject, ListTodoRoutingLogic, ListTodoDataPassing {
             passDataToDetailTodo(source: dataStore!, destination: &desinationDataStore)
             navigateToDetailTodo(source: viewController!, destination: destinationViewController)
         }
-    }
-    
-    func routeToAddTodo(seque: UIStoryboardSegue?) {
-        
     }
     
     // Navigation
