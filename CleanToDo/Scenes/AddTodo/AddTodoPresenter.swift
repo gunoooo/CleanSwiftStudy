@@ -65,10 +65,8 @@ class AddTodoPresenter: AddTodoPresentationLogic {
     }
     
     func presentFetchedTodo(response: AddTodoModel.FetchTodo.Response) {
-        if (response.errorMessage == nil) {
+        if (response.todo != nil) {
             displayFetchedTodo(response: response)
-        } else {
-            displayFetchedTodoError(response: response)
         }
     }
     
@@ -79,14 +77,6 @@ class AddTodoPresenter: AddTodoPresentationLogic {
                     title: response.todo!.title,
                     contents: response.todo!.contents
                 )
-            )
-        )
-    }
-    
-    private func displayFetchedTodoError(response: AddTodoModel.FetchTodo.Response) {
-        viewController?.displayedFetchedTodoError(
-            viewModel: AddTodoModel.FetchTodo.ViewModel(
-                errorMessage: response.errorMessage
             )
         )
     }

@@ -42,7 +42,6 @@ enum AddTodoModel {
     enum FetchTodo {
         struct Response {
             var todo: Todo?
-            var errorMessage: String?
         }
         struct ViewModel {
             struct DisplayedTodo {
@@ -50,7 +49,6 @@ enum AddTodoModel {
                 var contents: String
             }
             var displayedTodo: DisplayedTodo?
-            var errorMessage: String?
         }
     }
 }

@@ -85,18 +85,10 @@ class AddTodoInteractor: AddTodoBusinessLogic, AddTodoDataStore {
     }
     
     func fetchTodo() {
-        if (todo != nil) {
-            presenter?.presentFetchedTodo(
-                response: AddTodoModel.FetchTodo.Response(
-                    todo: todo
-                )
+        presenter?.presentFetchedTodo(
+            response: AddTodoModel.FetchTodo.Response(
+                todo: todo
             )
-        } else {
-            presenter?.presentFetchedTodo(
-                response: AddTodoModel.FetchTodo.Response(
-                    errorMessage: "로딩중 오류가 발생하였습니다"
-                )
-            )
-        }
+        )
     }
 }

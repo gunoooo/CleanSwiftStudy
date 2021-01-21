@@ -38,6 +38,7 @@
 		4E9C0E5E25B70D560045F522 /* DetailTodoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C0E5D25B70D560045F522 /* DetailTodoRouter.swift */; };
 		4E9C0E6425B821800045F522 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C0E6325B821800045F522 /* TodoCell.swift */; };
 		4EA6477E25B9BAE8005EDED8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6477D25B9BAE8005EDED8 /* ViewController.swift */; };
+		8F9BD6B025BA495C00343710 /* AddTodoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9BD6AF25BA495C00343710 /* AddTodoRouter.swift */; };
 		A7391707EA6BA5CA91D6B9CD /* Pods_CleanToDo_CleanToDoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D2CFD55E207C9E1BA1D7B8 /* Pods_CleanToDo_CleanToDoUITests.framework */; };
 		D979425E435AD80B7437627C /* Pods_CleanToDoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A0F0AE5138807D32BD0FCC /* Pods_CleanToDoTests.framework */; };
 /* End PBXBuildFile section */
@@ -100,6 +101,7 @@
 		64F127B966A30E9E557283E6 /* Pods-CleanToDoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanToDoTests.release.xcconfig"; path = "Target Support Files/Pods-CleanToDoTests/Pods-CleanToDoTests.release.xcconfig"; sourceTree = "<group>"; };
 		79052806509300F147CB3C52 /* Pods-CleanToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanToDo.release.xcconfig"; path = "Target Support Files/Pods-CleanToDo/Pods-CleanToDo.release.xcconfig"; sourceTree = "<group>"; };
 		8B29C153555E432C71265CDC /* Pods-CleanToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanToDo.debug.xcconfig"; path = "Target Support Files/Pods-CleanToDo/Pods-CleanToDo.debug.xcconfig"; sourceTree = "<group>"; };
+		8F9BD6AF25BA495C00343710 /* AddTodoRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTodoRouter.swift; path = ../../../../../../.Trash/AddTodoRouter.swift; sourceTree = "<group>"; };
 		C68528440C66ACB298C9C357 /* Pods-CleanToDo-CleanToDoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanToDo-CleanToDoUITests.debug.xcconfig"; path = "Target Support Files/Pods-CleanToDo-CleanToDoUITests/Pods-CleanToDo-CleanToDoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D9D2CFD55E207C9E1BA1D7B8 /* Pods_CleanToDo_CleanToDoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanToDo_CleanToDoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E44AD2627228A85DB00DD3FF /* Pods-CleanToDoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanToDoTests.debug.xcconfig"; path = "Target Support Files/Pods-CleanToDoTests/Pods-CleanToDoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				4E9C0E3A25B70D010045F522 /* AddTodoPresenter.swift */,
 				4E9C0E3F25B70D190045F522 /* AddTodoInteractor.swift */,
 				4E9C0E4425B70D260045F522 /* AddTodoModel.swift */,
+				8F9BD6AF25BA495C00343710 /* AddTodoRouter.swift */,
 			);
 			path = AddTodo;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				4E80588E25B6E96D00FC9776 /* SceneDelegate.swift in Sources */,
 				4E9C0DF125B6EF3E0045F522 /* ListTodoRouter.swift in Sources */,
 				4E9C0DEC25B6EF240045F522 /* ListTodoModel.swift in Sources */,
+				8F9BD6B025BA495C00343710 /* AddTodoRouter.swift in Sources */,
 				4E9C0E1F25B6F53F0045F522 /* StringExtension.swift in Sources */,
 				4E9C0E2525B6F9030045F522 /* TDError.swift in Sources */,
 				4E9C0E0A25B6F12B0045F522 /* TodoWorker.swift in Sources */,

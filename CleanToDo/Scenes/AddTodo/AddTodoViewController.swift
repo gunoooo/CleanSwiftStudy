@@ -16,7 +16,6 @@ protocol AddTodoDisplayLogic: class {
     func displayModifiedTodoError(viewModel: AddTodoModel.ModifyTodo.ViewModel)
     
     func displayedFetchedTodo(viewModel: AddTodoModel.FetchTodo.ViewModel)
-    func displayedFetchedTodoError(viewModel: AddTodoModel.FetchTodo.ViewModel)
 }
 
 /**
@@ -83,9 +82,5 @@ class AddTodoViewController: CleanToDo.ViewController, SetupLogic, AddTodoDispla
     func displayedFetchedTodo(viewModel: AddTodoModel.FetchTodo.ViewModel) {
         titleTextField.text = viewModel.displayedTodo?.title
         contentsTextField.text = viewModel.displayedTodo?.contents
-    }
-    
-    func displayedFetchedTodoError(viewModel: AddTodoModel.FetchTodo.ViewModel) {
-        displayErrorMessage(errorMessage: viewModel.errorMessage!)
     }
 }
