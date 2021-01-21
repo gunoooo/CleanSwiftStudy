@@ -12,7 +12,7 @@ protocol ListTodoDisplayLogic: class {
     func displayFetchedTodosError(viewModel: ListTodoModel.FetchTodos.ViewModel)
 }
 
-class ListTodoViewController: UIViewController, ListTodoDisplayLogic {
+class ListTodoViewController: CleanToDo.ViewController, SetupLogic, ListTodoDisplayLogic {
     var interactor: ListTodoBusinessLogic?
     var router: (NSObject & ListTodoRoutingLogic & ListTodoDataPassing)?
     
@@ -20,17 +20,7 @@ class ListTodoViewController: UIViewController, ListTodoDisplayLogic {
     
     var displayedTodos: [ListTodoModel.FetchTodos.ViewModel.DisplayedTodo] = []
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    private func setup() {
+    func setup() {
         let viewController = self
         let interactor = ListTodoInteractor()
         let presenter = ListTodoPresenter()
@@ -69,15 +59,6 @@ class ListTodoViewController: UIViewController, ListTodoDisplayLogic {
     
     func displayFetchedTodosError(viewModel: ListTodoModel.FetchTodos.ViewModel) {
         displayErrorMessage(errorMessage: viewModel.errorMessage!)
-    }
-    
-    private func displayErrorMessage(errorMessage: String) {
-        let dialog = UIAlertController(title: "오류 메세지", message: errorMessage, preferredStyle: .alert)
-
-        let action = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
-        dialog.addAction(action)
-           
-        self.present(dialog, animated: true, completion: nil)
     }
 }
 

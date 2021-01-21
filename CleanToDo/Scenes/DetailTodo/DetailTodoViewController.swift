@@ -13,24 +13,16 @@ protocol DetailTodoDisplayLogic: class {
     func displayFetchedTodoError(viewModel: DetailTodoModel.FetchTodo.ViewModel)
 }
 
-class DetailTodoViewController: UIViewController, DetailTodoDisplayLogic {
+class DetailTodoViewController: CleanToDo.ViewController, SetupLogic, DetailTodoDisplayLogic {
     var interactor: DetailTodoBusinessLogic?
     var router: (NSObject & DetailTodoRoutingLogic & DetailTodoDataPassing)?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentsLabel: UILabel!
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        setup()
-    }
+    // 의존성 주입
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    private func setup() {
+    func setup() {
         let viewController = self
         let interactor = DetailTodoInteractor()
         let presenter = DetailTodoPresenter()
@@ -64,14 +56,5 @@ class DetailTodoViewController: UIViewController, DetailTodoDisplayLogic {
     
     func displayFetchedTodoError(viewModel: DetailTodoModel.FetchTodo.ViewModel) {
         displayErrorMessage(errorMessage: viewModel.errorMessage!)
-    }
-    
-    private func displayErrorMessage(errorMessage: String) {
-        let dialog = UIAlertController(title: "오류 메세지", message: errorMessage, preferredStyle: .alert)
-
-        let action = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
-        dialog.addAction(action)
-           
-        self.present(dialog, animated: true, completion: nil)
     }
 }

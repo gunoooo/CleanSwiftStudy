@@ -7,13 +7,13 @@
 
 import RealmSwift
 
-class BaseLocal {
+class Local {
     private static var realmInstance : Realm!
     
     lazy var realm: Realm! = {
-        if(BaseLocal.realmInstance == nil){
-            BaseLocal.realmInstance = try! Realm()
+        if(CleanToDo.Local.realmInstance == nil){
+            CleanToDo.Local.realmInstance = try! Realm()
         }
-        return BaseLocal.realmInstance
+        return CleanToDo.Local.realmInstance
     }()
 }

@@ -22,7 +22,7 @@ protocol AddTodoDisplayLogic: class {
 /**
    todo 작성(Add) 및 수정(Modify)을 담당하는 화면
 */
-class AddTodoViewController: UIViewController, AddTodoDisplayLogic {
+class AddTodoViewController: CleanToDo.ViewController, SetupLogic, AddTodoDisplayLogic {
     var interactor: AddTodoBusinessLogic?
     var router: (NSObject & AddTodoRoutingLogic & AddTodoDataPassing)?
     
@@ -37,17 +37,7 @@ class AddTodoViewController: UIViewController, AddTodoDisplayLogic {
             todoFormFields: AddTodoModel.TodoFormFields(title: title, contents: contents)))
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    private func setup() {
+    func setup() {
         let viewController = self
         let interactor = AddTodoInteractor()
         let presenter = AddTodoPresenter()
@@ -97,14 +87,5 @@ class AddTodoViewController: UIViewController, AddTodoDisplayLogic {
     
     func displayedFetchedTodoError(viewModel: AddTodoModel.FetchTodo.ViewModel) {
         displayErrorMessage(errorMessage: viewModel.errorMessage!)
-    }
-    
-    private func displayErrorMessage(errorMessage: String) {
-        let dialog = UIAlertController(title: "오류 메세지", message: errorMessage, preferredStyle: .alert)
-
-        let action = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
-        dialog.addAction(action)
-           
-        self.present(dialog, animated: true, completion: nil)
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RealmSwift
 
-class TodoLocal: BaseLocal {
+class TodoLocal: CleanToDo.Local {
     func insertTodo(todo: Todo) -> Single<String> {
         return Single<String>.create { single in
             do {
