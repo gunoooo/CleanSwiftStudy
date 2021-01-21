@@ -58,11 +58,20 @@ class DetailTodoViewController: UIViewController, DetailTodoDisplayLogic {
     }
     
     func displayFetchedTodo(viewModel: DetailTodoModel.FetchTodo.ViewModel) {
-        titleLabel.text = viewModel.displayedTodo?.title
-        contentsLabel.text = viewModel.displayedTodo?.contents
+        titleLabel.text = viewModel.displayedTodo!.title
+        contentsLabel.text = viewModel.displayedTodo!.contents
     }
     
     func displayFetchedTodoError(viewModel: DetailTodoModel.FetchTodo.ViewModel) {
-        
+        displayErrorMessage(errorMessage: viewModel.errorMessage!)
+    }
+    
+    private func displayErrorMessage(errorMessage: String) {
+        let dialog = UIAlertController(title: "오류 메세지", message: errorMessage, preferredStyle: .alert)
+
+        let action = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
+        dialog.addAction(action)
+           
+        self.present(dialog, animated: true, completion: nil)
     }
 }
