@@ -16,7 +16,7 @@ class TodoLocal: BaseLocal {
                 try self.realm.write {
                     let todoDBModel = todo.toDBModel()
                     todoDBModel.setAutoIncrementIdx()
-                    self.realm.add(todo.toDBModel())
+                    self.realm.add(todoDBModel)
                 }
                 single(.success("TODO 목록에 추가되었습니다"))
             } catch {

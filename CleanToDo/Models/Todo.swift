@@ -52,7 +52,7 @@ class TodoDBModel: Object {
 
     func setAutoIncrementIdx() {
         let realm = try! Realm()
-        if let retNext = realm.objects(TodoDBModel.self).sorted(byKeyPath: "idx").first?.idx {
+        if let retNext = realm.objects(TodoDBModel.self).sorted(byKeyPath: "idx").last?.idx {
             self.idx = retNext + 1
         } else {
             self.idx = 1
